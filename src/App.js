@@ -63,6 +63,11 @@ class App extends Component {
             this.setState({messages});
         });
     }
+    unsubscribe() {
+        localStorage.clear()
+        window.location.href = '/'
+        this.drone.room.unsubscribe();
+    }
 
     render() {
         return (
@@ -77,6 +82,7 @@ class App extends Component {
                 <Input
                     onSendMessage={this.onSendMessage}
                 />
+                <button onClick={this.unsubscribe}>Unsubscribe</button>
             </div>
         );
     }

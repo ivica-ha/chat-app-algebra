@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Messages({messages, currentMember}) {
+const Messages = ({messages, currentMember}) => {
 
     const renderMessage = (message) => {
         const {member, text} = message;
@@ -29,3 +29,5 @@ export default function Messages({messages, currentMember}) {
         </ul>
     );
 }
+
+export default Messages;

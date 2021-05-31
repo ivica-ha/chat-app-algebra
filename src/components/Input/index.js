@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function Input({onSendMessage}) {
+const Input = ({onSendMessage}) => {
     const [text, setText] = useState('');
 
     const onChange = (e) => {
@@ -29,3 +29,4 @@ export default function Input({onSendMessage}) {
     );
 }
 
+export default Input;

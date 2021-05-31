@@ -48,6 +48,9 @@ class App extends Component {
         this.drone = new window.Scaledrone("F6lAu6hUed5Jo0zO", {
             data: this.state.member
         });
+    }
+
+    componentDidMount() {
         this.drone.on('open', error => {
             if (error) {
                 return console.error(error);
@@ -63,6 +66,7 @@ class App extends Component {
             this.setState({messages});
         });
     }
+
     unsubscribe() {
         localStorage.clear()
         window.location.href = '/'

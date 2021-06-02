@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Messages from './components/Messages';
 import Input from './components/Input';
+import {getSessionStorage, removeSessionStorage, setSessionStorage} from "./functions";
 
 function randomName() {
     const adjectives = [
@@ -25,21 +26,23 @@ function randomName() {
         "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper", "frog",
         "smoke", "star"
     ];
-    const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-    const noun = nouns[Math.floor(Math.random() * nouns.length)];
-    return adjective + noun;
+    const randomName = adjectives[Math.floor(Math.random() * adjectives.length)] + nouns[Math.floor(Math.random() * nouns.length)];
+    setSessionStorage('userName', randomName)
+    return randomName;
 }
 
 function randomColor() {
-    return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    const randomColor = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    setSessionStorage('userColor', randomColor)
+    return randomColor;
 }
 
 class App extends Component {
     state = {
         messages: [],
         member: {
-            username: randomName(),
-            color: randomColor(),
+            username: getSessionStorage('userName') || randomName(),
+            color: getSessionStorage('userColor') || randomColor(),
         }
     }
 
@@ -67,18 +70,10 @@ class App extends Component {
         });
     }
 
-    unsubscribe() {
-        localStorage.clear()
-        window.location.href = '/'
-        this.drone.room.unsubscribe();
-    }
-
     render() {
+
         return (
             <div className="App">
-                <div className="App-header">
-                    <h1>My Chat App</h1>
-                </div>
                 <Messages
                     messages={this.state.messages}
                     currentMember={this.state.member}
@@ -86,7 +81,6 @@ class App extends Component {
                 <Input
                     onSendMessage={this.onSendMessage}
                 />
-                <button onClick={this.unsubscribe}>Unsubscribe</button>
             </div>
         );
     }
@@ -96,6 +90,13 @@ class App extends Component {
             room: "observable-room",
             message
         });
+    }
+
+    handleUnsubscribe() {
+        removeSessionStorage('userName')
+        removeSessionStorage('userColor')
+        window.location.href = '/'
+        this.drone.room.unsubscribe();
     }
 
 }

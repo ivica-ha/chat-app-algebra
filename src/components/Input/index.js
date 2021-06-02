@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './style.css'
 
 const Input = ({onSendMessage}) => {
     const [text, setText] = useState('');
@@ -14,17 +15,19 @@ const Input = ({onSendMessage}) => {
     }
 
     return (
-        <div className='message-input'>
-            <form onSubmit={onSubmit}>
-                <input
-                    onChange={onChange}
-                    value={text}
-                    type='text'
-                    placeholder='Enter your message and press ENTER'
-                    autoFocus={true}
-                />
-                <button>Send</button>
-            </form>
+        <div className="container">
+            <div className='message-input'>
+                <form className='d-flex justify-content-between' onSubmit={onSubmit}>
+                    <input
+                        onChange={onChange}
+                        value={text}
+                        type='text'
+                        placeholder='Type your message...'
+                        autoFocus={true}
+                    />
+                    <button>Send</button>
+                </form>
+            </div>
         </div>
     );
 }

@@ -1,0 +1,50 @@
+.user-init {
+  height: 100vh;
+
+  .user-setup {
+
+    .selected-user-color {
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: -10px;
+      top: -10px;
+    }
+
+    input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      &:focus, &:active {
+        & + .color-picker {
+          border: 1px solid var(--theme-cta-color)
+        }
+      }
+    }
+
+    .color-picker {
+      background: var(--theme-cta-color);
+      border-radius: 0 15px 15px 0;
+      cursor: pointer;
+      height: 25px;
+      padding: 10px 15px;
+
+      img {
+        width: 24px;
+      }
+    }
+
+    .sketch-picker {
+      background: var(--theme-color-darker) !important;
+      bottom: -310px;
+      position: absolute !important;
+      right: -168px;
+      z-index: 99;
+    }
+  }
+
+  .create-user {
+    margin-top: 20px;
+  }
+}

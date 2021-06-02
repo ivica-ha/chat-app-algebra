@@ -1,0 +1,123 @@
+@import 'colors';
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  line-height: 1
+}
+
+p, div, span, a {
+  font-size: 12px;
+}
+
+ol, ul {
+  list-style: none
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: var(--theme-color);
+}
+
+p, div, a, span {
+  color: var(--theme-text-color);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--theme-color-darker);
+  color: var(--theme-text-color);
+  border: none;
+  outline: none;
+
+  &:focus, &:active {
+    box-shadow: 0 0 0 1px var(--theme-cta-color);
+  }
+}
+
+button {
+  background-color: var(--theme-cta-color);
+  border: none;
+  border-radius: 10px;
+  color: #212121;
+  cursor: pointer;
+  padding: 10px 25px;
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
+}
+
+svg {
+  fill: currentColor;
+}
+
+.divider-text {
+  align-items: center;
+  display: flex;
+  margin: 40px 0;
+  position: relative;
+
+  &:after, &:before {
+    background: var(--theme-text-color);
+    content: "";
+    height: 1px;
+    margin: 0 10px;
+    width: 50px;
+  }
+}

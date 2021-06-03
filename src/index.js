@@ -4,12 +4,10 @@ import './globalStyle.css'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import App from './App';
 import Home from "./components/Home";
-import {ToastProvider} from "react-toast-notifications";
 import Navigation from "./components/Navigation";
 
 ReactDOM.render(
     <React.StrictMode>
-        <ToastProvider>
             <Navigation />
             <Router>
                 <Switch>
@@ -21,7 +19,6 @@ ReactDOM.render(
                     </Route>
                 </Switch>
             </Router>
-        </ToastProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

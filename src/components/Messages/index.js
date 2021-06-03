@@ -5,7 +5,7 @@ const Messages = ({messages, currentMember}) => {
 
     const bottomDiv = useRef();
     useEffect(() => {
-        bottomDiv.current.scrollIntoView();
+        bottomDiv.current?.scrollIntoView();
     }, [messages.length]);
 
 
@@ -34,7 +34,7 @@ const Messages = ({messages, currentMember}) => {
         <div className='container messages'>
             <ul className="Messages-list d-flex flex-direction-column">
                 {messages.map((m, index) => renderMessage(m, index))}
-                <div ref={bottomDiv} />
+                <div ref={bottomDiv}/>
             </ul>
         </div>
     );

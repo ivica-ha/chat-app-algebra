@@ -1,0 +1,16 @@
+.message-input {
+  input {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:active + button, &:focus + button {
+      box-shadow: 0 0 0 1px var(--theme-cta-color);
+    }
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
